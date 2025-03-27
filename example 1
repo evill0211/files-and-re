@@ -1,0 +1,17 @@
+import re
+
+#gets the file name from the user
+file = input("Enter a file name: ")
+
+expression = input("Enter a regular expression: ")
+
+match_line = 0
+
+with open(file, 'r') as fname:
+  for line in fname:
+    #searchs for the regular expression in the line
+    if re.search(expression, line):
+      #if the expression is found, it increments by 1
+      match_line += 1
+
+print(f"{file} had {match_line} lines that matched {expression}")
